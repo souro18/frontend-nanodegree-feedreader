@@ -114,6 +114,19 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
          
-         
+         var feed =$('.feed');
+         var feedContent = feed.html();
+         beforeEach(function(done){
+            console.log("beforeEach started");
+            loadFeed(1,function(){
+                done();
+            });
+            console.log("beforeEach ended");
+         });
+         it('Content changes when new feed is loaded',function(done){
+            console.log("test");
+            expect(feed.html()).not.toBe(feedContent);
+            done();
+         });
      });
 }());
