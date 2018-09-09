@@ -70,22 +70,20 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
-          // beforeEach(function(done) {
-          //   $('menu-icon-link').on('click', function(){
-          //       done();
-          //   });
-          // });
-          // it('Menu changes visibility', function(done){
-          //   if(hidden) {
-          //       expect($('body').hasClass()).toBe(false);
-          //       hidden=false;
-          //   }
-          //   else {
-          //       expect($('body').hasClass()).toBe(true);
-          //       hidden=true;
-          //   }
-          //   done();
-          // });
+          
+          it('Menu changes visibility', function(){
+            $('.menu-icon-link').click(function(){
+                if(hidden) {
+                    expect($('body').hasClass("menu-hidden")).toBe(false);
+                    hidden=false;
+                }
+                else {
+                    expect($('body').hasClass("menu-hidden")).toBe(true);
+                    hidden=true;
+                }
+            });
+            $('.menu-icon-link').trigger('click');
+          });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function(){
@@ -115,6 +113,7 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         
          
      });
 }());
